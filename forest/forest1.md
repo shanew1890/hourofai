@@ -17,7 +17,7 @@
 // **************************************************** -->
 
 ## Drone Command - Operation Uplink @showdialog
-A critical intel package has slipped into enemy hands, but upon delivery, it was scattered across the ocean floor. Before the data gets back into the enemy’s hands, your mission is to pilot a recon drone across hostile waters, recover the scattered data shards, and upload them back to the ship. Once all 15 data shards are collected, the game is over and you can leave enemy waters.
+A critical intel package has slipped into enemy hands, but upon delivery, it was scattered across the ocean floor. Before the data gets back into the enemy’s hands, your mission is to pilot a recon drone across hostile waters, recover the scattered data shards, and upload them back to the ship. Once all **15** data shards are collected, the game is over, and you can leave enemy waters.
 
 **The Manta Ray**
 <!-- This is how you add an image in markdown -->
@@ -27,8 +27,8 @@ A critical intel package has slipped into enemy hands, but upon delivery, it was
 You’ll build a **UUV (Unmanned Underwater Vehicle/Drone)** like the one above in this mission and:
 - **Collect data** pods underwater
 - **Surface** at the ship to **upload** and increase your score
-- Avoid the **sonar the buoy** that can steal the data
-- Use a **coded AI advisor** that will suggest a "Collect / Upload / Avoid" using simple rules (heuristic) you can **tune**
+- Avoid the **sonar buoy** that can steal the data
+- Use a **coded AI advisor** that will suggest a **"Collect / Upload / Avoid"** using simple rules (heuristic) you can **tune**
 
 Ready to launch?
 
@@ -129,7 +129,7 @@ hint~
 // **************************************************** -->
 ## {Step 3}
 
-- :paint brush: Click the empty **grey square** to open the image editor and choose a background from the **Gallery** or **My Assets**.
+- :paint brush: Click the empty **gray square** to open the image editor and choose a background from the **Gallery** or **My Assets**.
 
 ```blocks
 //@highlight
@@ -202,7 +202,7 @@ _💡 If you don't like that drone, click the box and change to one of the other
 **Robotic warfare specialists** serve the U.S. Navy and are responsible for the **operation, maintenance**, and **tactical employment** of **robotic and autonomous systems** to achieve a hybrid manned-unmanned fleet.
 
 ## {Step 7}
-**Move your Sprites Locations**
+**Move your Drone's Starting Location**
 
 Let's move your drone to its starting location at the start of the game.
 
@@ -340,11 +340,11 @@ container that's already in the workspace.
 
 ---
 
-You should be able to pilot your drone all around the ocean and see the sights.
+You should now be able to pilot your drone anywhere and keep it in view, as the camera follows it.
 
 ---
 
-_🤭**Oops!** Your sprite isn't moving anymore because the cameraFollow block makes the camera stay on top of the drone sprite, but as soon as you add more sprites in the next level, you'll see how your drone moves and interacts with them!_
+_💡If it looks like the drone isn’t moving, that’s just because the camera is centered on it._
 
 <!-- ***************************************************
 //                      NOTE
@@ -357,12 +357,12 @@ _🤭**Oops!** Your sprite isn't moving anymore because the cameraFollow block m
 // aka.ms/make-a-skillmap
 // **************************************************** -->
 ## {10. Finale}
-**You've finished the first level!**<br/>
+**You've finished the first level! 🎉**<br/>
 👏 👏 👏
 
 ---
 
-When you're ready, click **Done** to return to the skillmap and go to the next level
+When you're ready, click **Done** to return to the skillmap and go to the next level,
 where you'll add your other sprites!
 <!-- **************************** End Tutorial Text Portion *************************//
 // ---------------------------------------------------------------------------------//
