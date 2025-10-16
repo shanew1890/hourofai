@@ -1,15 +1,16 @@
-# Missing Data
+# Incoming Ship
 ### @explicitHints true
 
-## Welcome @showdialog
-**The SPURV**
-![The SPURV](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/SPURV.png)
-The first unmanned underwater vehicles were developed in the 1950s and used to collect oceanographic data in Arctic waters.
-In this section, you will program your drone to collect the missing data in enemy territory.
+## Part 2: Incoming Ship @showdialog
+**The USS Delaware (SSN 791)**
+![The SPURV](https://raw.githubusercontent.com/shanew1890/hourofai/master/assets/USSDelaware.jpg)
+The USS Delaware marks the first-ever torpedo tube **deployment and recovery** of a UUV in support of a **tactical mission**.
 
-## {2. Add The Ship Sprite}
+In this section, you will create your Naval Ship Sprite that your drone will upload the stolen data to.
+
+## {Step 2}
 **Create Your Ship Sprite**
-- :paper plane: **Step 1:** From the ``||sprites:Sprites||`` category, grab another <br/>
+- :paper plane: **Step 1:** From the ``||sprites:Sprites||`` category, these two blocks of code:
 
 ```blocks
 //@highlight
@@ -50,33 +51,24 @@ hint~
 
 ---
 
-This sprite is different as it needs to be **labeled** as a **Ship** sprite instead of a **Player**. This will play an important role later as you will upload your data from the drone to the ship.
+This sprite is different as it needs to be **labeled** as a **Ship** sprite instead of a **Player**. You only want one player sprite, your drone.
 
 **Step 2:** Click **Player**, **Add a new kind**, and change it to **Ship**.
 
 
 ---
 
-**Give Your Sprite an Important Name**
-- **Step 3:** Give it the important name, **myShip** instead of **MySprite** & select the **ship sprite** from the **Gallery** or create your own!
-
----
-
-**Step 4:** Set your ship's **x** position to **20** and **y** position to **100**.
-
----
-
-You can always change these numbers to whatever you like.
+_💡You can change your ships x and y position to what ever you like._
 
 ## Career Spotlight: Robotic Warfare Specialist (RWS) — Mission Handoff @showdialog
 ![U.S. Navy Robotic Warfare Specialists](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/CSRWS.png "U.S. Navy Robotic Warfare Specialists")
 
-In Part 1, you met the Robotic Warfare Specialist who plans, launches, and supervises unmanned systems. 
-In real-world operations, RWS teams utilize a support ship as both the launch/recovery point and the data handoff hub.
+In Part 1, you met the **Robotic Warfare Specialists** who **plans, launches, and supervises** unmanned systems. 
+In real-world operations, RWS teams utilize a **support ship** as both the **launch/recovery point** and the **data handoff hub**.
 
-Your ship sprite fills that role: it’s the safe place your drone returns to, offloads “payload/data,” and resets for the next task. 
+Your ship sprite fills that role: it’s the safe place your drone **returns to**, **offloads “payload/data,” and resets** for the next task. 
 
-## {3. Set the Scene}
+## {Step 4}
 - :binoculars: Look at your project in the game window!
 Your drone should move in the direction you press the arrow keys.
 
@@ -96,219 +88,115 @@ to replace the blocks in your workspace with new starter code.
 
 hint~
 
-## {4. Creating the Data Sprite}
-**Create Your Data Sprite**
-- :paper plane: **Step 1:** From the ``||sprites:Sprites||`` category, grab <br/>
+## {Step 5}
+**Randomize Your Ship' Starting Location**
+
+- :paper plane: From the ``||math:Math||`` category, drag two
+``||math: pick random 0 to 10||`` blocks.  <br/>
+One into the X socket and one into the Y socket of:
 
 ```blocks
+let myShip = sprites.create(img`
+    ..............................
+    ..............................
+    ..............................
+    ..............................
+    ..............................
+    ..............................
+    .............c................
+    ...........ccc................
+    .............c................
+    ...........bbbccc.............
+    ...........cccccc.............
+    ..cccccccccbbbccc.............
+    ..cbccbbbbbccccccccccccccccc..
+    ....bbbbbbbbbbbbbbcccbbbcccc..
+    ....ccccccccccccccccccccc.....
+    ....cc2222222222222222222.....
+    ..............................
+    ..............................
+    ..............................
+    ..............................
+`, SpriteKind.Player)
 //@highlight
-let myData = sprites.create(img`
-    . . . . . . 9 9 9 9 9 9 . . . . 
-    . . . . 9 9 6 6 6 6 6 6 9 9 . . 
-    . . . 9 6 8 1 1 1 1 1 1 8 6 9 . 
-    . . 9 6 8 1 9 9 c c c 9 1 8 6 9 
-    . 9 6 8 1 c . 9 9 9 9 . c 1 8 6 
-    . 9 6 8 1 c . 9 d d 9 . c 1 8 6 
-    . 9 6 8 1 c . 9 9 9 9 . c 1 8 6 
-    . 9 6 8 1 9 9 c c c c 9 1 8 6 9 
-    . . 9 6 8 1 1 1 1 1 1 1 8 6 9 . 
-    . . . 9 6 8 8 8 8 8 8 8 8 6 9 . 
-    . . . . 9 9 6 6 6 6 6 6 9 9 . . 
-    . . . . . . 9 9 9 9 9 9 . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-`, SpriteKind.Food)
-//@highlight
-myData.setPosition(60,60)
+myShip.setPosition(
+    randint(0,0), randint(0,0)
 ```
 
-and snap it into ``||loops:on start||`` <br/>
-container already in the workspace.  <br/>
+## {Step 6}
+**Continue to Randomize**
+Replace the maximum number in each pick random with the screen size minus a margin:
 
----
+- For X: use ``||scene: screen width||`` minus 16
 
-Notice this sprite is different as it needs to be **labeled** as **Food** instead of a **Player** because your drone will be collecting it. 
+- For Y: use ``||scene: screen height||`` minus 16
 
-**Step 2:** Click **Player** and change it to **Food**.
+**To do this with blocks:**
 
----
+- From ||math:Math|| drag 0 - 0 into the “to” input of each pick random.
 
-**Give Your Sprite an Important Name**
-- **Step 3:** Give it the important name, **myData** & select the **data sprite** from the **Gallery** or create your own!
+- In the left side of the subtraction, put ``||scene: screen width||`` (for X) or ``||scene: screen height||`` (for Y).
 
----
+- In the right side, type 16.
 
-**Step 4:** Set your data's **x** position to **60** and **y** position to **60**.
-
----
-
-You can always change these numbers to whatever you like.
-
-## Drone Fact: What “payload” means @showdialog
-A drone’s payload is the equipment it carries—like cameras, sonars, or data pods. In your mission, “cargo” represents the data payload. Real maritime drones balance payload weight with range and battery life.
-
-## {5. Pilot Your Drone}
-**Pilot Your Drone**
-- :binoculars: Take a look in the game window! <br/><br/>
-You should be able to pilot your drone all around the ocean and see the sights.
-
-**Oops!** Right now, nothing happens when your drone sprite touches the ship or data sprites! Lets code that next!
-
-## Why Custom Green Blocks @showdialog
-
-When your program starts to grow, you’ll see the same ideas repeat: “put the data somewhere new,” “spawn a buoy that bounces,” “give advice.”
-Instead of rewriting long code each time, we bundle it into a **custom block**. 
-
-This is called **abstraction**: hiding the **messy details** behind a simple, easy-to-use command.
-
-You’ve already used abstraction:
+C- hange the “from” number in each pick random to 16 so we also keep a margin from the left/top edges.
 
 ```blocks
+let myShip = sprites.create(img`
+    ..............................
+    ..............................
+    ..............................
+    ..............................
+    ..............................
+    ..............................
+    .............c................
+    ...........ccc................
+    .............c................
+    ...........bbbccc.............
+    ...........cccccc.............
+    ..cccccccccbbbccc.............
+    ..cbccbbbbbccccccccccccccccc..
+    ....bbbbbbbbbbbbbbcccbbbcccc..
+    ....ccccccccccccccccccccc.....
+    ....cc2222222222222222222.....
+    ..............................
+    ..............................
+    ..............................
+    ..............................
+`, SpriteKind.Player)
 //@highlight
-controller.moveSprite(myDrone) 
+myShip.setPosition(
+    randint(16, scene.screenWidth() - 16),
+    randint(16, scene.screenHeight() - 16)
+)
 ```
-
-You don’t see the math inside how the controls work; you know that if you move the arrow keys, the drone will move.
-
-Now we’ll use more that are already made for us!
-
-
-## Placing the Data Randomly
-
-We need a way so that when the program starts, the data appears in a random location.
-
-Introducing custom blocks! Drag out the custom block:
-
-- :paper plane: From the ``||custom:Custom||`` category, grab <br/>
-
-```blocks
-//@highlight
-custom.placeDataRandomly()
-```
-
-and snap it into ``||loops:on start||`` <br/>
-container already in the workspace.  <br/>
-
----
-
-Run the program several times. 
-
-What do you notice about the data sprite's location each time you run the program?
-
-What do you wonder about how this custom block works?
-
-## Drone Fact: GPS doesn’t work underwater @showdialog
-Radio/GPS signals fade quickly in seawater, so undersea drones navigate using onboard sensors (inertial measurement units, Doppler velocity logs) and acoustic beacons. That’s why “known landmarks” (your ship/data) and simple rules are so helpful in this level.
-
-## How a Custom Block Works 
-
-Hidden inside a custom block are 4 main parts:
-- a name (what shows up as the block text),
-- inputs/parameters (what you can change),
-- body (the steps it runs),
-- and sometimes a result (a return value).
-
----
-
-The placeDataRandomly() block at the start of your program runs and places your data sprite at a random location on the map.
-```blocks
-//@highlight
-custom.placeDataRandomly()
-```
-
----
-
-**What's hidden inside?**
-```blocks
-//@highlight
-let myData = sprites.create(img`
-    . . . . . . 9 9 9 9 9 9 . . . . 
-    . . . . 9 9 6 6 6 6 6 6 9 9 . . 
-    . . . 9 6 8 1 1 1 1 1 1 8 6 9 . 
-    . . 9 6 8 1 9 9 c c c 9 1 8 6 9 
-    . 9 6 8 1 c . 9 9 9 9 . c 1 8 6 
-    . 9 6 8 1 c . 9 d d 9 . c 1 8 6 
-    . 9 6 8 1 c . 9 9 9 9 . c 1 8 6 
-    . 9 6 8 1 9 9 c c c c 9 1 8 6 9 
-    . . 9 6 8 1 1 1 1 1 1 1 8 6 9 . 
-    . . . 9 6 8 8 8 8 8 8 8 8 6 9 . 
-    . . . . 9 9 6 6 6 6 6 6 9 9 . . 
-    . . . . . . 9 9 9 9 9 9 . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-`, SpriteKind.Food)
-//@highlight
-myData.setPosition(randint(16, scene.screenWidth() - 16), randint(16, scene.screenHeight() - 16))
-```
-
-## Data Collection - Checking for Overlap
-
-If the drone touches the data, then we want the data to randomly appear in a new location on the map and increase our score. 
-
-We will practice abstraction here with a custom block, but inside of it, hidden is a programming concept called if/then conditionals!
-
----
-
-~hint Tell me about if/then conditionals! 💡
-
----
-
-In programming, an if/then (a conditional) lets your code make a decision.
-You give it a condition that can be true or false.
-If the condition is true, then the code inside runs. If it’s false, it skips that code.
-In this program our if/then is this block:
-
----
-
-```blocks
-if (true){
-}
-```
-
-hint~
-
-You will not need to drag out an if/then block; instead:
-
-- :paper plane: From the ``||custom:Custom||`` category, grab <br/>
-
-```blocks
-//@highlight
-custom.enableDataCollection(3)
-```
-
-and snap it into ``||loops:on start||`` <br/>
-container already in the workspace.  <br/>
-
----
-
-This custom block allows you to pick up a maximum of 3 data shards at a time.
-
----
-
-Run the program several times. 
-
-What happens after the drone collects 3 data shards? What do you expect to happen if we change the number 3 to 5?
-
-## Career Spotlight: Navy Oceanographer @showdialog
-![Navy Oceanographer](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/CSoceanographer.jpg)
-
-Currents, waves, and temperature layers change how drones move and how sonar travels. Navy oceanographers forecast these conditions so operators pick smarter routes—just like you’re designing rules about when and where to collect and upload data.
-
-## {Finale}
-👏 **There you have it!**
-
----
-
-When you're finished, click **Done** to
-head to the next level and find out how to avoid the enemy sonar buoys!
 
 ```blockconfig.global
-custom.placeDataRandomly()
-custom.enableDataCollection(3)
+let myShip = sprites.create(img`
+    ..............................
+    ..............................
+    ..............................
+    ..............................
+    ..............................
+    ..............................
+    .............c................
+    ...........ccc................
+    .............c................
+    ...........bbbccc.............
+    ...........cccccc.............
+    ..cccccccccbbbccc.............
+    ..cbccbbbbbccccccccccccccccc..
+    ....bbbbbbbbbbbbbbcccbbbcccc..
+    ....ccccccccccccccccccccc.....
+    ....cc2222222222222222222.....
+    ..............................
+    ..............................
+    ..............................
+    ..............................
+`, SpriteKind.Player)
+//@highlight
+myShip.setPosition(20,100)
+
 ```
 
 ```template
@@ -340,51 +228,43 @@ myDrone.setPosition(80,80)
 scene.cameraFollowSprite(myDrone)
 ```
 
+```ghost
+// Ensure Math operator blocks appear in the toolbox:
+let __add = 0 + 0
+let __sub = 0 - 0
+let __mul = 0 * 0
+let __div = 1 / 1
+let __mod = 1 % 1
+
+// Common math helpers (these surface their blocks, too):
+let __pow = Math.pow(2, 3)
+let __min = Math.min(0, 1)
+let __max = Math.max(0, 1)
+let __abs = Math.abs(-1)
+let __round = Math.round(1.2)
+let __floor = Math.floor(1.8)
+let __ceil = Math.ceil(1.1)
+
+// Random & screen size blocks you’re using:
+let __rand = randint(0, 10)
+let __w = scene.screenWidth()
+let __h = scene.screenHeight()
+
+// Also reference the pattern students will build (doesn't run in ghost)
+myShip.setPosition(
+    randint(16, scene.screenWidth() - 16),
+    randint(16, scene.screenHeight() - 16)
+)
+
+```
+
 ```customts
-//% weight=100 color=#0fbc11 icon=""
-namespace custom {
-    export let MAX_CARGO = 3
-    let cargo = 0
-    // helpers: grab the first sprite of a kind (if it exists)
-    function firstOf(kind: number): Sprite {
-        const list = sprites.allOfKind(kind)
-        return list.length ? list[0] : null
-    }
-
-    //% block="place data randomly"
-    export function placeDataRandomly(): void {
-        const data = firstOf(SpriteKind.Food)
-        if (data) {
-            data.setPosition(
-                randint(16, scene.screenWidth() - 16),
-                randint(16, scene.screenHeight() - 16)
-            )
-        }
-    }
-
-    //% block="enable data collection (max $capacity)"
-    //% capacity.defl=3 capacity.min=1 capacity.max=20
-    export function enableDataCollection(capacity: number = 3): void {
-        // Let students’ choice drive the limit; fall back to current MAX_CARGO
-        if (capacity && capacity > 0) {
-            MAX_CARGO = capacity | 0
-        }
-
-        sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function () {
-            if (cargo >= MAX_CARGO) {
-                if (typeof myDrone !== "undefined" && myDrone) {
-                    myDrone.sayText("Storage full!", 400)
-                }
-                music.thump.play()
-                return
-            }
-            cargo += 1
-            music.baDing.play()
-            placeDataRandomly()
-        })
-    }
+// Define custom sprite kinds (safe, tiny, and makes toolbox happy)
+namespace SpriteKind {
+    export const Ship = SpriteKind.create()
 }
 ```
+
 
 ```assetjson
 {
