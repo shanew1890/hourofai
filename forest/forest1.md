@@ -400,9 +400,9 @@ let myDrone = sprites.create(img`
     ....................
     ....................
     `, SpriteKind.Player)
+myDrone.setPosition(80,80)
 controller.moveSprite(myDrone)
 scene.cameraFollowSprite(myDrone)
-myDrone.setPosition(80,80)
 ```
 
 <!-- ***************************************************
