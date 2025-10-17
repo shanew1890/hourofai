@@ -10,7 +10,7 @@ In this section, you will create your Naval Ship Sprite that your drone will upl
 
 ## {Step 2}
 **Create Your Ship Sprite**
-- :paper plane: **Step 1:** From the ``||sprites:Sprites||`` category, these two blocks of code:
+- :paper plane: **Step 1:** From the ``||sprites:Sprites||`` category, grab:
 
 ```blocks
 //@highlight
@@ -60,7 +60,7 @@ _💡You can change your ships x and y position to what ever you like._
 
 ## {Step 3}
 **Update Your Ship Sprite's Location**
-- :paper plane: **Step 1:** From the ``||sprites:Sprites||`` category, these two blocks of code:
+- :paper plane: **Step 1:** From the ``||sprites:Sprites||`` category, grab:
 
 ```blocks
 let myShip = sprites.create(img`
