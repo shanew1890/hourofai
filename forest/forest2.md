@@ -285,7 +285,7 @@ hint~
 
 ---
 
-When you're finished, click **Done** to head to the next level where you'll build your data sprite and start collecting the stolen data!
+When you're finished, click **Done** to return to the skillmap and go to the next level where you'll build your data sprite and start collecting the stolen data!
 
 
 ```blockconfig.global
