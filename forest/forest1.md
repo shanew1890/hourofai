@@ -357,7 +357,7 @@ _💡If it looks like the drone isn’t moving, that’s just because the camera
 // aka.ms/make-a-skillmap
 // **************************************************** -->
 ## {10. Finale}
-**You've finished the first level!🎉**<br/>
+**You've finished the first level!**<br/>
 👏 👏 👏
 
 ---
