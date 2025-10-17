@@ -311,7 +311,6 @@ let myShip = sprites.create(img`
     ..............................
     ..............................
 `, SpriteKind.Player)
-//@highlight
 myShip.setPosition(20,100)
 ```
 
