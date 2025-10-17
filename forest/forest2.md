@@ -228,7 +228,9 @@ let myShip = sprites.create(img`
 `, SpriteKind.Player)
 //@highlight
 myShip.setPosition(
-    randint(0,scene.screenWidth()-0), randint(0,scene.screenHeight()-0)
+    randint(0,scene.screenWidth()-0),
+    randint(0,scene.screenHeight()-0
+)
 ```
 
 ## {Step 9}
@@ -370,7 +372,6 @@ myShip.setPosition(
     randint(16, scene.screenWidth() - 16),
     randint(16, scene.screenHeight() - 16)
 )
-
 ```
 
 ```assetjson
