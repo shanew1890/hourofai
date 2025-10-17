@@ -36,8 +36,6 @@ let myShip = sprites.create(img`
     ..............................
     ..............................
 `, SpriteKind.Player)
-//@highlight
-myShip.setPosition(20,100)
 ```
 
 and snap it into ``||loops:on start||`` <br/>
@@ -60,6 +58,40 @@ This sprite is different as it needs to be **labeled** as a **Ship** sprite inst
 
 _💡You can change your ships x and y position to what ever you like._
 
+## {Step 3}
+**Update Your Ship Sprite's Location**
+- :paper plane: **Step 1:** From the ``||sprites:Sprites||`` category, these two blocks of code:
+
+```blocks
+let myShip = sprites.create(img`
+    ..............................
+    ..............................
+    ..............................
+    ..............................
+    ..............................
+    ..............................
+    .............c................
+    ...........ccc................
+    .............c................
+    ...........bbbccc.............
+    ...........cccccc.............
+    ..cccccccccbbbccc.............
+    ..cbccbbbbbccccccccccccccccc..
+    ....bbbbbbbbbbbbbbcccbbbcccc..
+    ....ccccccccccccccccccccc.....
+    ....cc2222222222222222222.....
+    ..............................
+    ..............................
+    ..............................
+    ..............................
+`, SpriteKind.Player)
+//@highlight
+myShip.setPosition(20,100)
+```
+
+and snap it into ``||loops:on start||`` <br/>
+container already in the workspace.  <br/>
+
 ## Career Spotlight: Robotic Warfare Specialist (RWS) — Mission Handoff @showdialog
 ![U.S. Navy Robotic Warfare Specialists](https://raw.githubusercontent.com/sjwines/hourofai/master/assets/CSRWS.png "U.S. Navy Robotic Warfare Specialists")
 
@@ -68,7 +100,7 @@ In real-world operations, RWS teams utilize a **support ship** as both the **lau
 
 Your ship sprite fills that role: it’s the safe place your drone **returns to**, **offloads “payload/data,” and resets** for the next task. 
 
-## {Step 4}
+## {Step 5}
 - :binoculars: Look at your project in the game window!
 Your drone should move in the direction you press the arrow keys.
 
@@ -88,8 +120,8 @@ to replace the blocks in your workspace with new starter code.
 
 hint~
 
-## {Step 5}
-**Randomize Your Ship' Starting Location**
+## {Step 6}
+**Randomize Your Ship's Starting Location**
 
 - :paper plane: From the ``||math:Math||`` category, drag two
 ``||math: pick random 0 to 10||`` blocks.  <br/>
@@ -120,26 +152,89 @@ let myShip = sprites.create(img`
 `, SpriteKind.Player)
 //@highlight
 myShip.setPosition(
-    randint(0,0), randint(0,0)
+    randint(0,160), randint(0,140)
 ```
 
-## {Step 6}
+---
+
+Run the program at least 10 times. 
+
+How many times does the **ship** appear **off** the **game screen**?
+
+_💡Click the **next** button to fix this problem._
+
+## {Step 7}
 **Continue to Randomize**
-Replace the maximum number in each pick random with the screen size minus a margin:
 
-- For X: use ``||scene: screen width||`` minus 16
+Right now when you run the program, sometimes the ship appears off screen. To fix this, you will use the ``||scene: screen width||`` and ``||scene: screen height||`` blocks.
 
-- For Y: use ``||scene: screen height||`` minus 16
+- From ``||math:Math||`` drag the 0 - 0 block into the right side of the subtraction sign of both the x and y.
 
-**To do this with blocks:**
+```blocks
+let myShip = sprites.create(img`
+    ..............................
+    ..............................
+    ..............................
+    ..............................
+    ..............................
+    ..............................
+    .............c................
+    ...........ccc................
+    .............c................
+    ...........bbbccc.............
+    ...........cccccc.............
+    ..cccccccccbbbccc.............
+    ..cbccbbbbbccccccccccccccccc..
+    ....bbbbbbbbbbbbbbcccbbbcccc..
+    ....ccccccccccccccccccccc.....
+    ....cc2222222222222222222.....
+    ..............................
+    ..............................
+    ..............................
+    ..............................
+`, SpriteKind.Player)
+//@highlight
+myShip.setPosition(
+    randint(0,0-0), randint(0,0-0)
+```
 
-- From ||math:Math|| drag 0 - 0 into the “to” input of each pick random.
+## {Step 8}
+**Continue to Randomize**
 
-- In the left side of the subtraction, put ``||scene: screen width||`` (for X) or ``||scene: screen height||`` (for Y).
+In the left side of the subtraction sign, put ``||scene: screen width||`` for x and ``||scene: screen height||`` for y.
 
-- In the right side, type 16.
+```blocks
+let myShip = sprites.create(img`
+    ..............................
+    ..............................
+    ..............................
+    ..............................
+    ..............................
+    ..............................
+    .............c................
+    ...........ccc................
+    .............c................
+    ...........bbbccc.............
+    ...........cccccc.............
+    ..cccccccccbbbccc.............
+    ..cbccbbbbbccccccccccccccccc..
+    ....bbbbbbbbbbbbbbcccbbbcccc..
+    ....ccccccccccccccccccccc.....
+    ....cc2222222222222222222.....
+    ..............................
+    ..............................
+    ..............................
+    ..............................
+`, SpriteKind.Player)
+//@highlight
+myShip.setPosition(
+    randint(0,scene.screenWidth()-0), randint(0,scene.screenHeight()-0)
+```
 
-C- hange the “from” number in each pick random to 16 so we also keep a margin from the left/top edges.
+## {Step 9}
+**Continue to Randomize**
+
+For both x and y, in the first number type 16. Then in the last number , type 16.
 
 ```blocks
 let myShip = sprites.create(img`
@@ -170,6 +265,28 @@ myShip.setPosition(
     randint(16, scene.screenHeight() - 16)
 )
 ```
+~hint Why 16?
+💡The number 16 is used so when your ship sprite appears, it will be 16 spaces (pixels) away from the edge of the screen.
+hint~
+
+## {Step 10}
+Run the program at least 10 times. 
+
+How many times does the **ship** appear **off** the **game screen**?
+
+---
+
+~hint How many times does it?
+💡 The answer is 0. The ship now stays in between the screen when the program starts!
+hint~
+
+## {Finale}
+👏 **There you have it!**
+
+---
+
+When you're finished, click **Done** to head to the next level where you'll build your data sprite and start collecting the stolen data!
+
 
 ```blockconfig.global
 let myShip = sprites.create(img`
@@ -196,7 +313,6 @@ let myShip = sprites.create(img`
 `, SpriteKind.Player)
 //@highlight
 myShip.setPosition(20,100)
-
 ```
 
 ```template
@@ -257,14 +373,6 @@ myShip.setPosition(
 )
 
 ```
-
-```customts
-// Define custom sprite kinds (safe, tiny, and makes toolbox happy)
-namespace SpriteKind {
-    export const Ship = SpriteKind.create()
-}
-```
-
 
 ```assetjson
 {
