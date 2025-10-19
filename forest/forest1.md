@@ -17,7 +17,9 @@
 // **************************************************** -->
 
 ## Drone Command - Operation Uplink @showdialog
-A critical intel package has slipped into enemy hands, but upon delivery, it was scattered across the ocean floor. Before the data gets back into the enemy’s hands, your mission is to pilot a recon drone across hostile waters, recover the scattered data shards, and upload them back to the ship. Once all **15** data shards are collected, the game is over, and you can leave enemy waters.
+A **critical intel package** has slipped into enemy hands, but before delivery, the aerial drone carrying it was taken down, and the data was scattered across the ocean floor. Before the data gets back into the enemy’s hands, your mission is to **pilot** a recon drone across hostile waters, **recover** the scattered data shards, and **upload** them back to the ship. 
+
+Once all **15 data shards are collected**, the game is over, and you can leave the enemy waters.
 
 **The Manta Ray**
 <!-- This is how you add an image in markdown -->
