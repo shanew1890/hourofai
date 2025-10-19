@@ -256,8 +256,10 @@ namespace custom {
 
     //% block="place data randomly"
     export function placeDataRandomly(): void {
-        if (typeof myData !== "undefined" && myData) {
-            myData.setPosition(
+        const list = sprites.allOfKind(SpriteKind.Food)
+        if (list.length) {
+            const data = list[0]
+            data.setPosition(
                 randint(16, scene.screenWidth() - 16),
                 randint(16, scene.screenHeight() - 16)
             )
