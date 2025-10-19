@@ -398,7 +398,6 @@ namespace custom {
     // --- Private state for our helpers ---
     let cargo = 0
     let hitCooldown = false
-    let hud: Sprite = null
 
     function dist(a: Sprite, b: Sprite): number {
         return Math.sqrt((a.x - b.x) ** 2 + (a.y - b.y) ** 2)
@@ -438,7 +437,7 @@ namespace custom {
         })
     }
 
-// helpers: grab the first sprite of a kind (if it exists)
+    // helpers: grab the first sprite of a kind (if it exists)
     function firstOf(kind: number): Sprite {
         const list = sprites.allOfKind(kind)
         return list.length ? list[0] : null
